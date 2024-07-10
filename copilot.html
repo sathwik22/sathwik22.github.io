@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML page using copilot</title>
+    <link rel="stylesheet" href="App.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var isOpen = false;
+        var isCompleted = false;
+
+        function handleVideoEnd() {
+          isCompleted = true;
+          document.getElementById("completionStatus").style.color = "green";
+          document.getElementById("completionStatus").textContent = "✔";
+        }
+
+        document
+          .getElementById("toggleVideo")
+          .addEventListener("click", function () {
+            isOpen = !isOpen;
+            if (isOpen) {
+              document.getElementById("videoContainer").style.display = "block";
+              this.textContent = "Click to close video";
+            } else {
+              document.getElementById("videoContainer").style.display = "none";
+              this.textContent = "Click to watch the video";
+            }
+          });
+
+        document
+          .getElementById("videoPlayer")
+          .addEventListener("ended", handleVideoEnd);
+
+        var isOpen2 = false;
+        var isCompleted2 = false;
+
+        function handleVideoEnd2() {
+          isCompleted2 = true;
+          document.getElementById("completionStatus2").style.color = "green";
+          document.getElementById("completionStatus2").textContent = "✔";
+        }
+
+        document
+          .getElementById("toggleVideo2")
+          .addEventListener("click", function () {
+            isOpen2 = !isOpen2;
+            if (isOpen2) {
+              document.getElementById("videoContainer2").style.display =
+                "block";
+              this.textContent = "Click to close video";
+            } else {
+              document.getElementById("videoContainer2").style.display = "none";
+              this.textContent = "Click to watch the video";
+            }
+          });
+
+        document
+          .getElementById("videoPlayer2")
+          .addEventListener("ended", handleVideoEnd2);
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <h2>HTML page using copilot<span id="completionStatus"></span></h2>
+      <button id="toggleVideo">Click to watch the video</button>
+      <div id="videoContainer" style="display: none">
+        <video id="videoPlayer" width="420" height="320" controls>
+          <track kind="captions" srclang="en" label="English" />
+          <source src="./POC.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <h2>Video on Unit Testing <span id="completionStatus2"></span></h2>
+      <button id="toggleVideo2">Click to watch the video</button>
+      <div id="videoContainer2" style="display: none">
+        <video id="videoPlayer2" width="420" height="320" controls>
+          <track kind="captions" srclang="en" label="English" />
+          <source src="./POC.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </body>
+</html>
