@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML Page Using Copilot</title>
     <link rel="stylesheet" href="copilot.css" />
+    <style>
+      /* Additional styling for animation */
+      .thank-you {
+        text-align: center;
+        margin-top: 50px;
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         function handleToggle(buttonId, containerId, statusId, videoId) {
@@ -92,6 +112,13 @@
           </video>
         </div>
       </section>
+      <!-- Button to go to summary page -->
+      <button
+        onclick="window.location.href='summary.html'"
+        class="toggle-button"
+      >
+        Go to Summary Page
+      </button>
     </div>
   </body>
 </html>
