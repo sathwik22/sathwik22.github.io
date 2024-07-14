@@ -5,8 +5,8 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-start; /* Align items to start */
+  min-height: 100vh; /* Ensure the body takes up at least the full height */
   overflow-y: auto; /* Allow scrolling */
 }
 
@@ -18,8 +18,8 @@ body {
   border-radius: 10px;
   overflow: hidden;
   animation: fadeIn 1s ease-in-out;
-  padding: 20px; /* Added padding */
-  margin: 20px 0; /* Added margin */
+  padding: 20px;
+  margin: 20px 0;
 }
 
 .section {
