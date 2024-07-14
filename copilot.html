@@ -3,116 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTML page using copilot</title>
-    <link rel="stylesheet" href="App.css" />
+    <title>HTML Page Using Copilot</title>
+    <link rel="stylesheet" href="copilot.css" />
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var isOpen = false;
-        var isCompleted = false;
+        function handleToggle(buttonId, containerId, statusId, videoId) {
+          const button = document.getElementById(buttonId);
+          const videoContainer = document.getElementById(containerId);
+          const videoPlayer = document.getElementById(videoId);
+          const completionStatus = document.getElementById(statusId);
+          let isOpen = false;
 
-        function handleVideoEnd() {
-          isCompleted = true;
-          document.getElementById("completionStatus").style.color = "green";
-          document.getElementById("completionStatus").textContent = "✔";
-        }
+          videoPlayer.addEventListener("ended", function () {
+            completionStatus.style.color = "green";
+            completionStatus.textContent = "✔";
+          });
 
-        document
-          .getElementById("toggleVideo")
-          .addEventListener("click", function () {
+          button.addEventListener("click", function () {
             isOpen = !isOpen;
             if (isOpen) {
-              document.getElementById("videoContainer").style.display = "block";
+              videoContainer.style.display = "block";
               this.textContent = "Click to close video";
             } else {
-              document.getElementById("videoContainer").style.display = "none";
+              videoContainer.style.display = "none";
               this.textContent = "Click to watch the video";
             }
           });
-
-        document
-          .getElementById("videoPlayer")
-          .addEventListener("ended", handleVideoEnd);
-
-        var isOpen2 = false;
-        var isCompleted2 = false;
-
-        function handleVideoEnd2() {
-          isCompleted2 = true;
-          document.getElementById("completionStatus2").style.color = "green";
-          document.getElementById("completionStatus2").textContent = "✔";
         }
 
-        document
-          .getElementById("toggleVideo2")
-          .addEventListener("click", function () {
-            isOpen2 = !isOpen2;
-            if (isOpen2) {
-              document.getElementById("videoContainer2").style.display =
-                "block";
-              this.textContent = "Click to close video";
-            } else {
-              document.getElementById("videoContainer2").style.display = "none";
-              this.textContent = "Click to watch the video";
-            }
-          });
-
-        document
-          .getElementById("videoPlayer2")
-          .addEventListener("ended", handleVideoEnd2);
-        var isOpen3 = false;
-        var isCompleted3 = false;
-
-        function handleVideoEnd3() {
-          isCompleted3 = true;
-          document.getElementById("completionStatus3").style.color = "green";
-          document.getElementById("completionStatus3").textContent = "✔";
-        }
-
-        document
-          .getElementById("toggleVideo3")
-          .addEventListener("click", function () {
-            isOpen3 = !isOpen3;
-            if (isOpen3) {
-              document.getElementById("videoContainer3").style.display =
-                "block";
-              this.textContent = "Click to close video";
-            } else {
-              document.getElementById("videoContainer3").style.display = "none";
-              this.textContent = "Click to watch the video";
-            }
-          });
-        document
-          .getElementById("videoPlayer3")
-          .addEventListener("ended", handleVideoEnd3);
+        handleToggle(
+          "toggleVideo1",
+          "videoContainer1",
+          "completionStatus1",
+          "videoPlayer1"
+        );
+        handleToggle(
+          "toggleVideo2",
+          "videoContainer2",
+          "completionStatus2",
+          "videoPlayer2"
+        );
+        handleToggle(
+          "toggleVideo3",
+          "videoContainer3",
+          "completionStatus3",
+          "videoPlayer3"
+        );
       });
     </script>
   </head>
   <body>
-    <div>
-      <h2>HTML page using copilot<span id="completionStatus"></span></h2>
-      <button id="toggleVideo">Click to watch the video</button>
-      <div id="videoContainer" style="display: none">
-        <video id="videoPlayer" width="420" height="320" controls>
-          <track kind="captions" srclang="en" label="English" />
-          <source src="./web_page.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <h2>Video on Unit Testing <span id="completionStatus2"></span></h2>
-      <button id="toggleVideo2">Click to watch the video</button>
-      <div id="videoContainer2" style="display: none">
-        <video id="videoPlayer2" width="420" height="320" controls>
-          <track kind="captions" srclang="en" label="English" />
-          <source src="./unit_test.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <h2>Video on Applied copilot POC<span id="completionStatus3"></span></h2>
-      <button id="toggleVideo3">Click to watch the video</button>
-      <div id="videoContainer3" style="display: none">
-        <video id="videoPlayer3" width="420" height="320" controls>
-          <track kind="captions" srclang="en" label="English" />
-          <source src="./copilot_POC.mp4" type="video/mp4" />
-        </video>
-      </div>
+    <div class="container">
+      <section class="section">
+        <h2>HTML Page Using Copilot <span id="completionStatus1"></span></h2>
+        <button id="toggleVideo1" class="toggle-button">
+          Click to watch the video
+        </button>
+        <div id="videoContainer1" class="video-container">
+          <video id="videoPlayer1" class="video-player" controls>
+            <track kind="captions" srclang="en" label="English" />
+            <source src="./web_page.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+      <section class="section">
+        <h2>Video on Unit Testing <span id="completionStatus2"></span></h2>
+        <button id="toggleVideo2" class="toggle-button">
+          Click to watch the video
+        </button>
+        <div id="videoContainer2" class="video-container">
+          <video id="videoPlayer2" class="video-player" controls>
+            <track kind="captions" srclang="en" label="English" />
+            <source src="./unit_test.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+      <section class="section">
+        <h2>
+          Video on Applied Copilot POC <span id="completionStatus3"></span>
+        </h2>
+        <button id="toggleVideo3" class="toggle-button">
+          Click to watch the video
+        </button>
+        <div id="videoContainer3" class="video-container">
+          <video id="videoPlayer3" class="video-player" controls>
+            <track kind="captions" srclang="en" label="English" />
+            <source src="./copilot_POC.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
     </div>
   </body>
 </html>
