@@ -1,55 +1,62 @@
-/* General body styling */
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #f4f4f4;
+  font-family: "Roboto", sans-serif;
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: #333; /* Adjusted text color for better readability */
 }
 
-/* Styling for the main container */
-div {
-  max-width: 600px;
-  margin: auto;
-  background: white;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-/* Styling for the header */
-h2 {
-  color: #333;
+.container {
+  background-color: #fff; /* White background for container */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-bottom: 0px;
+  animation: fadeIn 1s ease-in-out;
+  max-width: 600px; /* Limit container width for better readability */
 }
 
-/* Button styling */
+header h1 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333; /* Adjusted header text color */
+}
+
+section p {
+  font-weight: 400;
+  margin: 1rem 0;
+  line-height: 1.6; /* Improved line height for better paragraph readability */
+  color: #555; /* Adjusted paragraph text color */
+}
+
 button {
-  background-color: #007bff;
-  color: white;
+  background-color: #0984e3;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
   border: none;
-  padding: 10px 20px;
-  margin: 20px 0;
-  border-radius: 5px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500; /* Increased font weight for button text */
   cursor: pointer;
-  display: block;
-  width: 100%;
+  transition: background-color 0.3s ease;
+  margin-top: 1.5rem; /* Slightly increased top margin for button */
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #74b9ff;
 }
 
-/* Video player styling */
-video {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Completed checkmark styling */
-span {
-  color: #28a745;
-  font-weight: bold;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
