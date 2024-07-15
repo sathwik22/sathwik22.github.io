@@ -16,6 +16,8 @@
         justify-content: space-between;
         padding: 10px 20px;
         background-color: white;
+        position: relative;
+        z-index: 10;
       }
       .header img {
         height: 50px;
@@ -25,14 +27,24 @@
         margin: 0;
         color: black;
       }
-      .header .nav-buttons a {
-        margin: 0 10px;
-        color: black;
+      .nav-buttons {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+        position: absolute;
+        top: 100px; /* Adjust this value to position the nav bar correctly */
+        width: 170%;
+        z-index: 5;
+      }
+      .nav-buttons a {
+        margin: 0 15px;
+        color: white;
         text-decoration: none;
+        font-size: 18px;
       }
       .content {
-        background: linear-gradient(135deg, #53a8b6, #ef553a);
-        height: calc(100vh - 80px);
+        background: url("./background.jpg");
+        height: calc(77vh);
         padding: 20px;
         display: flex;
         justify-content: space-between;
@@ -71,9 +83,6 @@
       .sidebar button:nth-child(6) {
         background-color: #90be6d;
       }
-      .qr-codes img {
-        height: 200px;
-      }
       .footer {
         position: absolute;
         bottom: 10px;
@@ -86,23 +95,25 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: rgba(255, 255, 255, 0.8);
         padding: 20px;
         border-radius: 8px;
+        z-index: 10;
+      }
+      .login-form .input-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
       }
       .login-form label {
-        display: block;
-        margin-bottom: 10px;
-        text-align: left; /* Align labels to the left */
+        width: 100px; /* Adjust as needed */
+        margin-right: 10px;
+        background-color: rgb(6, 123, 6);
+        padding: 10px;
       }
       .login-form input[type="text"],
       .login-form input[type="password"] {
-        width: calc(100% - 40px); /* Adjust width to accommodate label */
+        flex: 1;
         padding: 10px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        display: inline-block; /* Display inputs inline */
       }
       .login-form button {
         width: 100%;
@@ -114,22 +125,36 @@
         cursor: pointer;
         border-radius: 4px;
       }
+      .qr-codes-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .qr-codes img {
+        display: inline-block;
+        height: 200px;
+        width: auto;
+      }
+      .qr-codes img:nth-child(2) {
+        margin-left: -4px;
+      }
     </style>
   </head>
   <body>
     <div class="header">
-      <img
-        src="https://via.placeholder.com/150x50?text=BOSCH"
-        alt="BOSCH Logo"
-      />
+      <img src="./bosch_logo.png" alt="BOSCH Logo" />
       <h1>Equipment Identification Key Generator</h1>
-      <div class="nav-buttons">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Login</a>
-        <a href="#">Contact</a>
-      </div>
-      <img src="https://via.placeholder.com/50x50?text=GR" alt="GR Logo" />
+      <img src="./gr.png" alt="GR Logo" />
+    </div>
+    <div class="nav-buttons">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Login</a>
+      <a href="#">Contact</a>
     </div>
     <div class="content">
       <div class="sidebar">
@@ -140,23 +165,22 @@
         <button>Approver</button>
         <button>User</button>
       </div>
-      <div class="qr-codes">
-        <img
-          src="https://via.placeholder.com/200?text=QR+Code+1"
-          alt="QR Code 1"
-        />
-        <img
-          src="https://via.placeholder.com/200?text=QR+Code+2"
-          alt="QR Code 2"
-        />
+      <div class="qr-codes-container" id="qrCodesContainer">
+        <div class="qr-codes">
+          <img src="./QR.png" alt="First QR Code" />
+          <img src="./QR.png" alt="Second QR Code" />
+        </div>
       </div>
     </div>
     <div class="login-form" id="loginForm">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" value="Admin" />
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" value="******" />
-      <button type="button" onclick="hideLoginForm()">Login</button>
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" value="Admin" />
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" value="******" />
+      </div>
     </div>
     <div class="footer">
       <p>All rights reserved @GR/BDO</p>
@@ -164,9 +188,11 @@
     <script>
       function showLoginForm() {
         document.getElementById("loginForm").style.display = "block";
+        document.getElementById("qrCodesContainer").style.display = "none";
       }
       function hideLoginForm() {
         document.getElementById("loginForm").style.display = "none";
+        document.getElementById("qrCodesContainer").style.display = "flex";
       }
     </script>
   </body>
