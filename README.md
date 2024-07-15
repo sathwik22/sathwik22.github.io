@@ -39,4 +39,4 @@ GitHub Copilot represents a significant leap forward in the evolution of coding 
 
 # copilot-useCases
 
-[Click](copilot.html) to see the use cases of Copilot
+[Click](intro.html) to see the demo on copilot.
