@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipment Identification Key Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: white;
+      }
+      .header img {
+        height: 50px;
+      }
+      .header h1 {
+        font-size: 24px;
+        margin: 0;
+        color: black;
+      }
+      .header .nav-buttons a {
+        margin: 0 10px;
+        color: black;
+        text-decoration: none;
+      }
+      .content {
+        background: linear-gradient(135deg, #53a8b6, #ef553a);
+        height: calc(100vh - 80px);
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+      }
+      .sidebar button {
+        background-color: rgba(255, 255, 255, 0.6);
+        border: none;
+        padding: 15px;
+        margin: 5px 0;
+        cursor: pointer;
+        font-size: 16px;
+        color: white;
+        text-align: left;
+      }
+      .sidebar button:nth-child(1) {
+        background-color: #f94144;
+      }
+      .sidebar button:nth-child(2) {
+        background-color: #577590;
+      }
+      .sidebar button:nth-child(3) {
+        background-color: #f3722c;
+      }
+      .sidebar button:nth-child(4) {
+        background-color: #f8961e;
+      }
+      .sidebar button:nth-child(5) {
+        background-color: #43aa8b;
+      }
+      .sidebar button:nth-child(6) {
+        background-color: #90be6d;
+      }
+      .qr-codes img {
+        height: 200px;
+      }
+      .footer {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: white;
+      }
+      .login-form {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .login-form label {
+        display: block;
+        margin-bottom: 10px;
+        text-align: left; /* Align labels to the left */
+      }
+      .login-form input[type="text"],
+      .login-form input[type="password"] {
+        width: calc(100% - 40px); /* Adjust width to accommodate label */
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: inline-block; /* Display inputs inline */
+      }
+      .login-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: #577590;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        src="https://via.placeholder.com/150x50?text=BOSCH"
+        alt="BOSCH Logo"
+      />
+      <h1>Equipment Identification Key Generator</h1>
+      <div class="nav-buttons">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Login</a>
+        <a href="#">Contact</a>
+      </div>
+      <img src="https://via.placeholder.com/50x50?text=GR" alt="GR Logo" />
+    </div>
+    <div class="content">
+      <div class="sidebar">
+        <button onclick="showLoginForm()">Admin</button>
+        <button>Location Owner</button>
+        <button>Project Owner</button>
+        <button>System Owner</button>
+        <button>Approver</button>
+        <button>User</button>
+      </div>
+      <div class="qr-codes">
+        <img
+          src="https://via.placeholder.com/200?text=QR+Code+1"
+          alt="QR Code 1"
+        />
+        <img
+          src="https://via.placeholder.com/200?text=QR+Code+2"
+          alt="QR Code 2"
+        />
+      </div>
+    </div>
+    <div class="login-form" id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" value="Admin" />
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" value="******" />
+      <button type="button" onclick="hideLoginForm()">Login</button>
+    </div>
+    <div class="footer">
+      <p>All rights reserved @GR/BDO</p>
+    </div>
+    <script>
+      function showLoginForm() {
+        document.getElementById("loginForm").style.display = "block";
+      }
+      function hideLoginForm() {
+        document.getElementById("loginForm").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
