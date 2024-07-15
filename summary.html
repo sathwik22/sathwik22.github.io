@@ -60,6 +60,30 @@
           transform: translateY(0);
         }
       }
+      @keyframes celebration-animation {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1.2);
+          opacity: 0;
+        }
+      }
+      .celebration {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2em;
+        color: rgb(88, 255, 4);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1000;
+      }
     </style>
   </head>
   <body>
@@ -80,5 +104,15 @@
         <p>Thank you for exploring the advantages of Copilot!</p>
       </div>
     </div>
+    <div id="celebration" class="celebration">🎉 Hurray! 🎉</div>
+    <script>
+      document.body.addEventListener("click", function () {
+        var celebration = document.getElementById("celebration");
+        celebration.style.animation = "none";
+        setTimeout(() => {
+          celebration.style.animation = "celebration-animation 1s forwards";
+        }, 10);
+      });
+    </script>
   </body>
 </html>
