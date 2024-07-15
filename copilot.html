@@ -69,6 +69,12 @@
           "completionStatus3",
           "videoPlayer3"
         );
+        handleToggle(
+          "toggleVideo4",
+          "videoContainer4",
+          "completionStatus4",
+          "videoPlayer4"
+        );
       });
     </script>
   </head>
@@ -112,7 +118,18 @@
           </video>
         </div>
       </section>
-      <!-- Button to go to summary page -->
+      <section class="section">
+        <h2>Video on Copilot usage <span id="completionStatus4"></span></h2>
+        <button id="toggleVideo4" class="toggle-button">
+          Click to watch the video
+        </button>
+        <div id="videoContainer4" class="video-container">
+          <video id="videoPlayer4" class="video-player" controls>
+            <track kind="captions" srclang="en" label="English" />
+            <source src="./applied_copilot.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
       <button
         onclick="window.location.href='summary.html'"
         class="toggle-button"
