@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component Viewer</title>
+    <style>
+      body {
+        display: flex;
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+      .top-bar {
+        position: absolute;
+        width: 60%;
+        height: 40px;
+        background-color: #20b2aa;
+        z-index: 1000;
+      }
+      .left-panel {
+        width: 30%;
+        padding: 60px 20px 20px;
+        border-right: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      .right-panel {
+        width: 70%;
+        padding: 60px 20px 20px;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .component-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .component-table th,
+      .component-table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+      .component-table th {
+        background-color: #f0f0f0;
+      }
+      .component-table td:first-child {
+        width: 30px;
+        text-align: center;
+      }
+      .component-table td:nth-child(2) {
+        width: 50px;
+      }
+      .component-table td:nth-child(3) {
+        width: calc(100% - 80px);
+      }
+      .image-container {
+        position: relative;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: flex-start;
+        overflow: hidden;
+      }
+      .image-container img {
+        max-width: 100%;
+        margin-top: 40px; /* To push the image down below the top bar */
+      }
+      .additional-image {
+        max-width: 100%;
+        margin-left: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        position: relative;
+      }
+      .close-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        cursor: pointer;
+      }
+      .image-buttons {
+        position: absolute;
+        top: 50px;
+        right: 10px;
+      }
+      .connector-details {
+        margin-top: 10px;
+        margin-right: 140px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="left-panel">
+      <table class="component-table" id="componentList">
+        <thead>
+          <tr>
+            <th></th>
+            <th>
+              Code
+              <input type="text" id="codeSearch" placeholder="Search code..." />
+            </th>
+
+            <th>
+              Description
+              <input
+                type="text"
+                id="descriptionSearch"
+                placeholder="Search description..."
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="component"
+                id="A3L"
+                data-image="simatics/image1.png"
+              />
+            </td>
+            <td><label for="A3L">A3L</label></td>
+            <td>SUNSHADE - LEFT</td>
+          </tr>
+          <tr>
+            <td>
+              <input type="radio" name="component" id="A3R" data-image="" />
+            </td>
+            <td><label for="A3R">A3R</label></td>
+            <td>SUNSHADE - RIGHT</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="component"
+                id="A7"
+                data-image="simatics/image1.png"
+              />
+            </td>
+            <td><label for="A7">A7</label></td>
+            <td>FUEL TANK FUEL PUMP MODULE</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="component"
+                id="A9A"
+                data-image="simatics/image1.png"
+              />
+            </td>
+            <td><label for="A9A">A9A</label></td>
+            <td>OUTSIDE REARVIEW MIRROR - DRIVER</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="component"
+                id="A9B"
+                data-image="outside-rearview-mirror-passenger.png"
+              />
+            </td>
+            <td><label for="A9B">A9B</label></td>
+            <td>OUTSIDE REARVIEW MIRROR - PASSENGER</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="component"
+                id="A10"
+                data-image="inside-rearview-mirror.png"
+              />
+            </td>
+            <td><label for="A10">A10</label></td>
+            <td>INSIDE REARVIEW MIRROR</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="component"
+                id="A11"
+                data-image="radio.png"
+              />
+            </td>
+            <td><label for="A11">A11</label></td>
+            <td>RADIO</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="component"
+                id="A22"
+                data-image="radio-control.png"
+              />
+            </td>
+            <td><label for="A22">A22</label></td>
+            <td>RADIO CONTROL</td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="component"
+                id="A23C"
+                data-image="liftgate-latch.png"
+              />
+            </td>
+            <td><label for="A23C">A23C</label></td>
+            <td>LIFTGATE LATCH</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="right-panel">
+      <div class="image-container" id="imageContainer">
+        <div class="top-bar"></div>
+        <!-- Image will be inserted here -->
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("codeSearch")
+        .addEventListener("input", function () {
+          const searchTerm = this.value.toLowerCase();
+          const components = document.querySelectorAll(
+            ".component-table tbody tr"
+          );
+          components.forEach(function (component) {
+            const code = component
+              .querySelector("td:nth-child(2) label")
+              .innerText.toLowerCase();
+            if (code.includes(searchTerm)) {
+              component.style.display = "";
+            } else {
+              component.style.display = "none";
+            }
+          });
+        });
+
+      document
+        .getElementById("descriptionSearch")
+        .addEventListener("input", function () {
+          const searchTerm = this.value.toLowerCase();
+          const components = document.querySelectorAll(
+            ".component-table tbody tr"
+          );
+          components.forEach(function (component) {
+            const description = component
+              .querySelector("td:nth-child(3)")
+              .innerText.toLowerCase();
+            if (description.includes(searchTerm)) {
+              component.style.display = "";
+            } else {
+              component.style.display = "none";
+            }
+          });
+        });
+
+      document
+        .querySelectorAll('.component-table input[type="radio"]')
+        .forEach(function (radio) {
+          radio.addEventListener("change", function () {
+            if (this.checked) {
+              const imageUrl = this.getAttribute("data-image");
+              document.getElementById("imageContainer").innerHTML = `
+                            <div class="top-bar"></div>
+                            <img src="${imageUrl}" alt="Component Image">
+                            <div class="image-buttons">
+                                <button onclick="showConnectorDetails('X1')">X1</button>
+                                <!-- Add more buttons here -->
+                            </div>
+                            <div class="connector-details" id="connectorDetails">
+                                <!-- Connector details will be displayed here -->
+                            </div>
+                        `;
+            }
+          });
+        });
+
+      function showConnectorDetails(connectorCode) {
+        const imageContainer = document.getElementById("imageContainer");
+        const existingImage = imageContainer.querySelector(".additional-image");
+
+        if (existingImage) {
+          existingImage.remove();
+        } else {
+          const additionalImageUrl = "simatics/sub_image1.png";
+
+          const additionalImage = document.createElement("img");
+          additionalImage.src = additionalImageUrl;
+          additionalImage.alt = "Additional Image";
+          additionalImage.className = "additional-image";
+
+          const closeButton = document.createElement("button");
+          closeButton.className = "close-button";
+          closeButton.innerHTML = "&times;";
+          closeButton.onclick = function () {
+            additionalImage.remove();
+          };
+
+          additionalImage.appendChild(closeButton);
+          imageContainer.appendChild(additionalImage);
+        }
+      }
+    </script>
+  </body>
+</html>
